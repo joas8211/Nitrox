@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Condition="'$(OS)' == 'Unix'">
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworkVersion>v3.1</TargetFrameworkVersion>
+    <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+    <ProjectGuid>{3e526924-01a3-11eb-adc1-0242ac120002}</ProjectGuid>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <OutDir>../bin</OutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="dnlib, Version=3.3.2.0, Culture=neutral, PublicKeyToken=50e96378b6e77999, processorArchitecture=MSIL">
+      <HintPath>..\packages\dnlib.3.3.2\lib\net45\dnlib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="MoveNitroxAssetsToLauncherOutput" AfterTargets="Build" Condition="'$(OS)' == 'Unix'">
+    <ItemGroup>
+      <NitroxSubnauticaAssets Include="..\Nitrox.Subnautica.Assets\**\*." />
+    </ItemGroup>
+    <ItemGroup>
+      <NitroxSubnauticaStaticDlls Include="..\Nitrox.Subnautica.Assets\**\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(NitroxSubnauticaAssets)" DestinationFolder="$(TargetDir)\%(RecursiveDir)" />
+    <Copy SourceFiles="@(NitroxSubnauticaStaticDlls)" DestinationFolder="$(TargetDir)\lib\%(RecursiveDir)" />
+  </Target>
+
+</Project>
