@@ -11,6 +11,7 @@
         <AssemblyName>Nitrox.Bootloader</AssemblyName>
         <FileAlignment>512</FileAlignment>
         <NitroxLibrary>false</NitroxLibrary>
+        <OutDir>../bin/lib</OutDir>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -19,6 +20,7 @@
         <Optimize>false</Optimize>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
+        <OutDir>../bin/lib</OutDir>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -26,6 +28,7 @@
         <Optimize>true</Optimize>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
+        <OutDir>../bin/lib</OutDir>
     </PropertyGroup>
     <ItemGroup>
       <Compile Include="Main.cs" />

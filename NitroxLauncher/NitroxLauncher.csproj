@@ -13,6 +13,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <OutDir>../bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <Optimize>false</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <OutDir>../bin/lib</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -28,6 +30,7 @@
     <Optimize>true</Optimize>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <OutDir>../bin/lib</OutDir>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -290,15 +293,6 @@
     </ItemGroup>
     <Copy SourceFiles="@(NitroxSubnauticaAssets)" DestinationFolder="$(TargetDir)\%(RecursiveDir)" />
     <Copy SourceFiles="@(NitroxSubnauticaStaticDlls)" DestinationFolder="$(TargetDir)\lib\%(RecursiveDir)" />
-  </Target>
-  <Target Name="MoveDependenciesToLib" AfterTargets="Build">
-    <ItemGroup>
-      <AllDependencies Include="$(TargetDir)*.dll" />
-      <AllDependencies Include="$(TargetDir)*.pdb" />
-      <AllDependencies Include="$(TargetDir)*.dll.config" />
-      <AllDependencies Include="$(TargetDir)*.xml" />
-    </ItemGroup>
-    <Move SourceFiles="@(AllDependencies)" DestinationFolder="$(TargetDir)lib" />
   </Target>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" Condition="'$(OS)' == 'Windows_NT'" />
 </Project>
