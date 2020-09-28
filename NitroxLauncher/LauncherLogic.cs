@@ -204,8 +204,8 @@ namespace NitroxLauncher
                 throw new Exception("An instance of Subnautica is already running");
             }
 #endif
-            // Store path where launcher is in AppData for Nitrox bootstrapper to read
-            string nitroxAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Nitrox");
+            // Store path where launcher is in game files for Nitrox bootstrapper to read
+            string nitroxAppData = Path.Combine(SubnauticaPath, "Nitrox");;
             Directory.CreateDirectory(nitroxAppData);
             File.WriteAllText(Path.Combine(nitroxAppData, "launcherpath.txt"), Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 

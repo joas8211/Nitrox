@@ -21,7 +21,7 @@ namespace Nitrox.Bootloader
             }
 
             // Get path from AppData file.
-            string nitroxAppData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Nitrox");
+            string nitroxAppData = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../../Nitrox");
             if (!Directory.Exists(nitroxAppData))
             {
                 return null;
@@ -84,7 +84,7 @@ namespace Nitrox.Bootloader
         {
             if (nitroxLauncherDir.Value == null)
             {
-                return "Nitrox launcher path not set in AppData. Nitrox will not start.";
+                return "Nitrox launcher path not set in game files. Nitrox will not start.";
             }
             if (AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(a => a.FullName.StartsWith("QMod", StringComparison.Ordinal)) != null)
             {
