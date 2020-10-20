@@ -72,7 +72,6 @@ namespace NitroxClient.MonoBehaviours.Gui.MainMenu
 
         private void CloseWindow(DiscordRpc.Reply reply)
         {
-            DiscordRPController.Main.RespondJoinRequest(Request.userId, reply);
             Destroy(this);
         }
 

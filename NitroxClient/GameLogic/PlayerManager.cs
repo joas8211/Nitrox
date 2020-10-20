@@ -60,8 +60,6 @@ namespace NitroxClient.GameLogic
             GameObject remotePlayerBody = CloneLocalPlayerBodyPrototype();
             RemotePlayer remotePlayer = new RemotePlayer(remotePlayerBody, playerContext, equippedTechTypes, playerModelManager);
 
-            DiscordRPController.Main.UpdatePlayerCount(GetTotalPlayerCount());
-
             playersById.Add(remotePlayer.PlayerId, remotePlayer);
 
             return remotePlayer;
@@ -74,7 +72,6 @@ namespace NitroxClient.GameLogic
             {
                 opPlayer.Value.Destroy();
                 playersById.Remove(playerId);
-                DiscordRPController.Main.UpdatePlayerCount(GetTotalPlayerCount());
             }
         }
 
